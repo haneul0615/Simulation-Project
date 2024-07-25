@@ -2,20 +2,37 @@ document.getElementById('simulate-button').addEventListener('click', simulateCac
 
 function simulateCache() {
     // Fetch input values
+    // const blockSize = parseInt(document.getElementById('block-size').value);
+    // const mainMemoryBlocks = document.getElementById('main-memory-blocks').value;
+    // const mainMemoryWords = document.getElementById('main-memory-words').value;
+    // const cacheMemoryBlocks = document.getElementById('cache-memory-blocks').value;
+    // const cacheMemoryWords = document.getElementById('cache-memory-words').value;
+    // const programFlow = document.getElementById('program-flow').value.split(',').map(Number);
+    // const missPenalty = parseInt(document.getElementById('miss-penalty').value);
+
     const blockSize = parseInt(document.getElementById('block-size').value);
-    const mainMemoryBlocks = document.getElementById('main-memory-blocks').value;
-    const mainMemoryWords = document.getElementById('main-memory-words').value;
-    const cacheMemoryBlocks = document.getElementById('cache-memory-blocks').value;
-    const cacheMemoryWords = document.getElementById('cache-memory-words').value;
-    const programFlow = document.getElementById('program-flow').value.split(',').map(Number);
+    const mainMemoryInput = document.getElementById('main-memory').value;
+    const mainMemoryType = document.querySelector('#main-memory + select').value;
+    const cacheMemoryInput = document.getElementById('cache-memory').value;
+    const cacheMemoryType = document.querySelector('#cache-memory + select').value;
+    const programFlowInput = document.getElementById('program-flow').value;
     const missPenalty = parseInt(document.getElementById('miss-penalty').value);
 
+    // Convert program flow input to array of numbers
+    const programFlow = programFlowInput.split(',').map(Number);
+
     // Determine main memory size
-    const mainMemorySize = mainMemoryBlocks ? parseInt(mainMemoryBlocks) : parseInt(mainMemoryWords) / blockSize;
+    //const mainMemorySize = mainMemoryBlocks ? parseInt(mainMemoryBlocks) : parseInt(mainMemoryWords) / blockSize;
+    const mainMemorySize = mainMemoryType === 'blocks'
+    ? parseInt(mainMemoryInput)
+    : parseInt(mainMemoryInput) / blockSize;
 
     // Determine cache memory size
-    const cacheMemorySize = cacheMemoryBlocks ? parseInt(cacheMemoryBlocks) : parseInt(cacheMemoryWords) / blockSize;
-    
+    //const cacheMemorySize = cacheMemoryBlocks ? parseInt(cacheMemoryBlocks) : parseInt(cacheMemoryWords) / blockSize;
+    const cacheMemorySize = cacheMemoryType === 'blocks'
+        ? parseInt(cacheMemoryInput)
+        : parseInt(cacheMemoryInput) / blockSize;
+
     // Initialize cache and memory
     let cache = [];
     let mainMemory = new Array(mainMemorySize).fill(null).map((_, index) => index); // Dummy main memory
