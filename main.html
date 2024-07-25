@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cache Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Cache Simulator</h1>
+        <div id="input-form">
+            <label for="block-size">Block Size:</label>
+            <input type="text" id="block-size">
+            
+            <label for="main-memory-blocks">Main Memory Size (Blocks):</label>
+            <input type="text" id="main-memory-blocks">
+            
+            <label for="main-memory-words">Main Memory Size (Words):</label>
+            <input type="text" id="main-memory-words">
+            
+            <label for="cache-memory-blocks">Cache Memory Size (Blocks):</label>
+            <input type="text" id="cache-memory-blocks">
+            
+            <label for="cache-memory-words">Cache Memory Size (Words):</label>
+            <input type="text" id="cache-memory-words">
+            
+            <label for="program-flow">Program Flow:</label>
+            <input type="text" id="program-flow">
+            
+            <label for="miss-penalty">Miss Penalty:</label>
+            <input type="text" id="miss-penalty">
+            
+            <button id="simulate-button">Simulate</button>
+        </div>
+        <div id="output">
+            <h2>Results</h2>
+            <p id="hits">Cache Hits: </p>
+            <p id="misses">Cache Misses: </p>
+            <p id="miss-penalty-output">Miss Penalty: </p>
+            <p id="average-access-time">Average Memory Access Time: </p>
+            <p id="total-access-time">Total Memory Access Time: </p>
+            <h2>Cache Snapshot</h2>
+            <pre id="cache-snapshot"></pre>
+            <button id="download-results">Download Results</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
