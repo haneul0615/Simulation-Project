@@ -13,7 +13,3 @@ This is a Simulation Project for CSARCH2 by group 4. The project is a Cache simu
 4. User must input a squence of numbers seperated by commas (without spaces)
 5. User must input the total time unit for a miss
 6. Press simulate and see results 
-
-## Features
-- simulator uses Full Associative Mapping
-- simulator uses the *Least Recently Used* (LRU) replacement algorithm
